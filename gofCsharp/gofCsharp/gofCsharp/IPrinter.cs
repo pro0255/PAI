@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace gofCsharp
 {
-    public interface CellNextState
+    public interface IPrinter
     {
-        bool NextState(int i, int j, bool[,] pop);
+        void Print(bool[,] pop);
     }
 }
