@@ -8,6 +8,6 @@ namespace gofCsharp
 {
     public interface IPrinter
     {
-        void Print(Board pop);
+        void Print(Board pop, bool printH = true, bool printF = true);
     }
 }

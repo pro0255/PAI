@@ -52,7 +52,7 @@ namespace gofCsharp
             sur.ForEach(s =>
             {
                 var posX = i + s.Item1;
-                var posY = j + s.Item1;
+                var posY = j + s.Item2;
                 if (b.CheckBorder(posX, posY))
                 {
                     if (pop[posX, posY])

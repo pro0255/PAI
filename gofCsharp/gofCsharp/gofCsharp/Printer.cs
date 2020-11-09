@@ -16,9 +16,25 @@ namespace gofCsharp
             TrueCell = '*';
             FalseCell = '.';
         }
-        public void Print(Board pop)
+
+        public void PrintHeader(Board pop)
+        {
+            Console.WriteLine("=================================");
+            Console.WriteLine(($"================{pop.BoardIndex}================"));
+            Console.WriteLine("=================================\n");
+        }
+
+        public void PrintFooter()
+        {
+            Console.WriteLine("\n=================================");
+        }
+
+
+        public void Print(Board pop, bool printH = true, bool printF = true)
         {
             var matrix = pop.Population;
+
+            if (printH) PrintHeader(pop);
 
             for (int i = 0; i < pop.Width; i++)
             {
@@ -29,6 +45,10 @@ namespace gofCsharp
                 }
                 Console.WriteLine();
             }
+
+
+            if (printH) PrintFooter();
+
 
         }
     }
