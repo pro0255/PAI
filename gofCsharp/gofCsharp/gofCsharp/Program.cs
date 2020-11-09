@@ -10,6 +10,11 @@ namespace gofCsharp
     {
         static void Main(string[] args)
         {
+            int maxGen = 20;
+            int size = 10;
+            var board = new Board(size);
+            board.Run(maxGen);
+
         }
     }
 }
