@@ -24,8 +24,7 @@ namespace gofCsharp
 
         public void StartSerial(int maxGeneration)
         {
-            Console.WriteLine();
-            Console.WriteLine(maxGeneration);
+            Printer.Print(Board);
         }
 
 

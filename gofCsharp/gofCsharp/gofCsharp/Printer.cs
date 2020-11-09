@@ -16,9 +16,19 @@ namespace gofCsharp
             TrueCell = '*';
             FalseCell = '.';
         }
-        public void Print(bool[,] pop)
+        public void Print(Board pop)
         {
-            Console.WriteLine("print");
+            var matrix = pop.Population;
+
+            for (int i = 0; i < pop.Width; i++)
+            {
+                for (int j = 0; j < pop.Height; j++)
+                {
+                    var state = matrix[i, j];
+                    Console.Write($"{(state ? TrueCell : FalseCell)}");
+                }
+                Console.WriteLine();
+            }
 
         }
     }

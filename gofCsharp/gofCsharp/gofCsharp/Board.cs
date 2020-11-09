@@ -8,25 +8,23 @@ namespace gofCsharp
 {
     public class Board
     {
-        public bool[,] Generation { get; set; }
+        public static int Migration = 0;
+        public int BoardIndex { get; set; }
+        public bool[,] Population { get; set; }
+        public int Width { get; set; }
 
-        private int Width { get; set; }
-
-        private int Height { get; set; }
+        public int Height { get; set; }
 
 
         private void InitBoard(int width, int height)
         {
-
-
-
             var rand = new Random();
 
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
                 {
-                    Generation[i, j] = rand.NextDouble() > 0.5;
+                    Population[i, j] = rand.NextDouble() > 0.5;
                 }
 
             }
@@ -36,7 +34,8 @@ namespace gofCsharp
         {
             Width = width;
             Height = height;
-            Generation = new bool[Width, Height];
+            Population = new bool[Width, Height];
+            BoardIndex = Board.Migration++;
             InitBoard(width, height);
         }
 

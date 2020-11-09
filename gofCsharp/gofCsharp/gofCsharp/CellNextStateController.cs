@@ -43,7 +43,7 @@ namespace gofCsharp
         public bool NextState(int i, int j, Board b)
         {
             var sur = GetSurroundigs();
-            var pop = b.Generation;
+            var pop = b.Population;
             var currentCell = pop[i, j];
 
             int numberOfDeath = 0;
