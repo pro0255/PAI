@@ -27,6 +27,12 @@ namespace gofCsharp
             Printer.Print(Board);
         }
 
+        public Board SerialIterationRun(Board old)
+        {
+            var newBoard = ExtensionMethods.DeepClone<Board>(old);
+
+        }
+
 
         public void StartParallel(int maxGeneration, int numberOfThreads)
         {
