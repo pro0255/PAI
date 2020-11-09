@@ -26,7 +26,7 @@ namespace gofCsharp
 
         public static Board PopulateRandom(Board b)
         {
-            var rand = new Random();
+            var rand = new Random(1);
 
             for (int i = 0; i < b.Width; i++)
             {

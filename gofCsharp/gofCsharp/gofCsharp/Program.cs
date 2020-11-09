@@ -10,7 +10,7 @@ namespace gofCsharp
 
     {
         static int NUMBER_OF_GENERATIONS = 20;
-        static int WIDTH = 5;
+        static int WIDTH = 1000;
         static int HEIGHT = WIDTH;
         static void Main(string[] args)
         {
@@ -18,7 +18,7 @@ namespace gofCsharp
             var size = new Tuple<int, int>(WIDTH, HEIGHT);
             var printer = new Printer();
             GoF gof = new GoF(controller, size, printer);
-            gof.StartSerial(NUMBER_OF_GENERATIONS);
+            gof.StartSerial(NUMBER_OF_GENERATIONS, false);
         }
     }
 }

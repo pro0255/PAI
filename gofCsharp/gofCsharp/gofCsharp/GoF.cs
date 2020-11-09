@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,13 @@ namespace gofCsharp
             Printer = printer;
         }
 
-        public void StartSerial(int maxGeneration)
+        public void StartSerial(int maxGeneration, bool verbose = true)
         {
 
-            B = Board.PopulateTestCaseBoard(B);
+            B = Board.PopulateRandom(B);
             while (Board.Migration < maxGeneration)
             {
-                Printer.Print(B);
+                if (verbose) Printer.Print(B);
                 B = SerialIterationRun(B);
             }
         }
@@ -40,6 +41,8 @@ namespace gofCsharp
 
         public Board SerialIterationRun(Board old)
         {
+            var sw = new Stopwatch();
+            sw.Start();
             var newBoard = CopyOld(old);
 
             for (int i = 0; i < old.Width; i++)
@@ -49,6 +52,8 @@ namespace gofCsharp
                     newBoard.Population[i, j] = NextStateController.NextState(i, j, old);
                 }
             }
+            sw.Stop();
+            Console.WriteLine("Elapsed={0}", sw.Elapsed);
             return newBoard;
         }
 
