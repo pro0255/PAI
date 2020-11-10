@@ -2,10 +2,16 @@
 //
 
 #include <iostream>
+#include "Board.h"
+
 
 int main()
 {
 	std::cout << "Hello World!\n";
+	Board *b = new Board("ahoj");
+
+
+
 }
 
 // Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění
