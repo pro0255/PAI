@@ -16,5 +16,8 @@ public:
 	GoF(Controller &c, Printer &p);
 	~GoF();
 	void StartSequential(int);
+
+	static int WIDTH;
+	static int HEIGHT;
 };
 

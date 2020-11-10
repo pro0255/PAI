@@ -11,6 +11,8 @@ Printer::Printer(char trueCell, char falseCell)
 
 void Printer::print(Board & b)
 {
+	cout << "=================" << endl;
+
 	for (int i = 0; i < b.height; i++)
 	{
 		for (int j = 0; j < b.width; j++)
@@ -19,4 +21,6 @@ void Printer::print(Board & b)
 		}
 		cout << endl;
 	}
+
+	cout << "=================" << endl;
 }

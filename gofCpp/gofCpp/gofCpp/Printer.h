@@ -9,7 +9,7 @@ private:
 	char falseCell;
 
 public:
-	Printer(char trueCell = '*', char falseCell = ' ');
+	Printer(char trueCell = '*', char falseCell = '-');
 	void print(Board &b);
 };
 

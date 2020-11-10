@@ -2,7 +2,6 @@
 #include "iostream"
 #include <stdio.h>
 
-
 int Board::migration = 0;
 
 
@@ -40,6 +39,7 @@ bool Board::isIn(int i, int j)
 void Board::populateRandomBoard(Board &b)
 {
 
+	srand(2);
 	for (int i = 0; i < b.height; i++)
 	{
 		for (int j = 0; j < b.width; j++)
@@ -67,6 +67,7 @@ Board & Board::generateBoard(int width, int height)
 
 Board & Board::copy(Board & b)
 {
+
 	auto *newB = new Board(b.width, b.height);
 	newB->pop = new bool[b.width * b.height];
 	//for (int i = 0; i < b.height; i++)

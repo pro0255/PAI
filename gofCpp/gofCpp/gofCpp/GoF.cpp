@@ -1,5 +1,9 @@
 #include "GoF.h"
 
+int GoF::WIDTH = 5;
+int GoF::HEIGHT = 5;
+
+
 GoF::GoF(Controller &c, Printer &p)
 {
 	this->c = &c;
@@ -14,11 +18,11 @@ GoF::~GoF()
 
 void GoF::StartSequential(int maxG)
 {
-	Board::migration = 0;
-	this->b = &Board::generateBoard(10, 10);
+	this->b = &Board::generateBoard(GoF::WIDTH, GoF::HEIGHT);
 	Board::populateRandomBoard(*this->b);
 
-	while (maxG < Board::migration) {
+	int m = 0;
+	while (maxG > m++) {
 		this->p->print(*this->b);
 		auto newO = &this->SequentialIteration(*this->b);
 		delete this->b;
