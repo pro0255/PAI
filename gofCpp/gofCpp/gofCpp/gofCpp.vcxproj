@@ -152,10 +152,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="GoF.cpp" />
     <ClCompile Include="gofCpp.cpp" />
+    <ClCompile Include="Printer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="GoF.h" />
+    <ClInclude Include="Printer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

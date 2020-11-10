@@ -11,14 +11,17 @@ private:
 	bool isWidth(int i);
 	bool isHeight(int j);
 public:
+	~Board();
 	Board(int width, int height);
-	bool **pop;
+	bool *pop;
 
 	int width;
 	int height;
 	bool isIn(int i, int j);
 
-	static Board* generateRandomBoard(int width, int height);
+
+	static void populateRandomBoard(Board &b);
+	static Board& generateBoard(int width, int height);
 	static int migration;
 };
 

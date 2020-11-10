@@ -9,14 +9,13 @@ Printer::Printer(char trueCell, char falseCell)
 	this->trueCell = trueCell;
 }
 
-void Printer::print(Board * b)
+void Printer::print(Board & b)
 {
-	for (int i = 0; i < b->width; i++)
+	for (int i = 0; i < b.height; i++)
 	{
-		for (int i = 0; i < b->height; i++)
+		for (int j = 0; j < b.width; j++)
 		{
-			cout << '*';
-
+			printf("%c", b.pop[i*b.height + j] ? this->trueCell : this->falseCell);
 		}
 		cout << endl;
 	}
