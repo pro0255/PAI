@@ -16,6 +16,7 @@ Board::~Board()
 
 Board::Board(int width, int height)
 {
+	Board::migration++;
 	this->width = width;
 	this->height = height;
 	this->pop = nullptr;
@@ -52,13 +53,29 @@ void Board::populateRandomBoard(Board &b)
 			}
 		}
 	}
-
-
 }
+
+
+
 
 Board & Board::generateBoard(int width, int height)
 {
-	Board *b = new Board(width, height);
+	auto *b = new Board(width, height);
 	b->pop = new bool[width * height];
 	return *b;
+}
+
+Board & Board::copy(Board & b)
+{
+	auto *newB = new Board(b.width, b.height);
+	newB->pop = new bool[b.width * b.height];
+	//for (int i = 0; i < b.height; i++)
+	//{
+	//	for (int j = 0; j < b.width; j++)
+	//	{
+	//		newB->pop[i*newB->height + j] = b.pop[i*b.height + j];
+	//	}
+	//}
+
+	return *newB;
 }

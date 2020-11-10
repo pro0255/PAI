@@ -22,6 +22,7 @@ public:
 
 	static void populateRandomBoard(Board &b);
 	static Board& generateBoard(int width, int height);
+	static Board& copy(Board &b);
 	static int migration;
 };
 
