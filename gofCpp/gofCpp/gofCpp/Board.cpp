@@ -36,6 +36,29 @@ bool Board::isIn(int i, int j)
 	return this->isWidth(i) && this->isHeight(j);
 }
 
+
+void Board::populateWithConfiguration(Board &b) {
+	try {
+		for (int i = 0; i < b.height; i++)
+		{
+			for (int j = 0; j < b.width; j++)
+			{
+				b.pop[i*b.height + j] = false;
+			}
+		}
+		b.pop[0 * b.height + 1] = true;
+		b.pop[1 * b.height + 2] = true;
+		b.pop[2 * b.height + 0] = true;
+		b.pop[2 * b.height + 1] = true;
+		b.pop[2 * b.height + 2] = true;
+
+	}
+	catch (char* e) {
+		throw "Borad is to small";
+	}
+}
+
+
 void Board::populateRandomBoard(Board &b)
 {
 

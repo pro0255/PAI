@@ -19,7 +19,7 @@ GoF::~GoF()
 void GoF::StartSequential(int maxG)
 {
 	this->b = &Board::generateBoard(GoF::WIDTH, GoF::HEIGHT);
-	Board::populateRandomBoard(*this->b);
+	Board::populateWithConfiguration(*this->b);
 
 	int m = 0;
 	while (maxG > m++) {

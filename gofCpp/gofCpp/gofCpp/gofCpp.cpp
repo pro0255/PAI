@@ -6,6 +6,8 @@
 
 int main()
 {
+
+	//https://playgameoflife.com/ test
 	Printer *p = new Printer();
 	Controller *c = new Controller();
 	GoF *g = new GoF(*c, *p);

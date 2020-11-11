@@ -1,5 +1,6 @@
 #include "Controller.h"
-
+#include "iostream"
+using namespace std;
 Controller::Controller()
 {
 	this->sur.push_back(make_pair(0, 1));
@@ -17,18 +18,23 @@ Controller::~Controller()
 
 }
 
-bool Controller::nextState(int i, int j, Board & b)
+bool Controller::nextState(int inputI, int inputJ, Board & b)
 {
-	auto currentCell = b.pop[i* b.height + j];
+	auto currentCell = b.pop[inputI* b.height + inputJ];
 	int numberOfLive = 0;
 	for (int i = 0; i < this->sur.size(); i++)
 	{
 		auto p = this->sur.at(i);
-		auto posY = i + p.first;
-		auto posX = j + p.second;
+		auto posY = inputI + p.first;
+		auto posX = inputJ + p.second;
 
 		if (b.isIn(posY, posX)) {
-			if (b.pop[posY * b.height + posX]) numberOfLive++;
+			auto neigState = b.pop[posY * b.height + posX];
+
+			if (neigState) {
+				//cout << posX << ' ' << posY << endl;
+				numberOfLive++;
+			}
 		}
 	}
 	return this->runConditions(numberOfLive, currentCell);
