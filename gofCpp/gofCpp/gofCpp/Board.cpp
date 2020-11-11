@@ -90,8 +90,7 @@ Board & Board::generateBoard(int width, int height)
 
 Board & Board::copy(Board & b)
 {
-
-	auto *newB = new Board(b.width, b.height);
+	Board *newB = new Board(b.width, b.height);
 	newB->pop = new bool[b.width * b.height];
 	//for (int i = 0; i < b.height; i++)
 	//{
