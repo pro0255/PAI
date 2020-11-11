@@ -6,6 +6,7 @@
 #include <thread>
 #include "iostream"
 #include "math.h"
+#include <ctime>
 
 using namespace std;
 
@@ -28,5 +29,7 @@ public:
 
 	static int WIDTH;
 	static int HEIGHT;
+	static bool VERBOSE;
+	static bool TIME;
 };
 

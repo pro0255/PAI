@@ -1,7 +1,12 @@
 #include "GoF.h"
 
-int GoF::WIDTH = 5;
-int GoF::HEIGHT = 5;
+
+int GoF::WIDTH = 500;
+int GoF::HEIGHT = 500;
+
+
+bool GoF::VERBOSE = false;
+bool GoF::TIME = true;
 
 
 GoF::GoF(Controller &c, Printer &p)
@@ -33,28 +38,43 @@ void GoF::StartSequential(int maxG)
 {
 	this->b = &Board::generateBoard(GoF::WIDTH, GoF::HEIGHT);
 	Board::populateWithConfiguration(*this->b);
-
 	int m = 0;
+
+	clock_t begin = clock();
+
 	while (maxG > m++) {
-		this->p->print(*this->b);
+		if (GoF::VERBOSE) this->p->print(*this->b);
 		auto newO = &this->SequentialIteration(*this->b);
 		delete this->b;
 		this->b = newO;
 	}
+
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+
+	if (GoF::TIME) printf("Elapsed time: %f sec\n", elapsed_secs);
 }
 
 void GoF::StartParallel(int maxG)
 {
 	this->b = &Board::generateBoard(GoF::WIDTH, GoF::HEIGHT);
 	Board::populateWithConfiguration(*this->b);
-
 	int m = 0;
+
+
+	clock_t begin = clock();
 	while (maxG > m++) {
-		this->p->print(*this->b);
+		if (GoF::VERBOSE) this->p->print(*this->b);
 		auto newO = &this->ParallelIteration(*this->b, 4);
 		delete this->b;
 		this->b = newO;
 	}
+
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+
+	if (GoF::TIME) printf("Elapsed time: %f sec\n", elapsed_secs);
+
 }
 
 
