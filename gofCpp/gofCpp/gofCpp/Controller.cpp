@@ -18,6 +18,7 @@ Controller::~Controller()
 
 }
 
+
 bool Controller::nextState(int inputI, int inputJ, Board & b)
 {
 	auto currentCell = b.pop[inputI* b.height + inputJ];
@@ -32,7 +33,6 @@ bool Controller::nextState(int inputI, int inputJ, Board & b)
 			auto neigState = b.pop[posY * b.height + posX];
 
 			if (neigState) {
-				//cout << posX << ' ' << posY << endl;
 				numberOfLive++;
 			}
 		}
