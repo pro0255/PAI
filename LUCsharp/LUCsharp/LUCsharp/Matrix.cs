@@ -8,9 +8,13 @@ namespace LUCsharp
 {
     public class Matrix
     {
-        public Matrix()
+        public Matrix(int rows, int columns)
         {
+            this.Rows = rows;
+            this.Columns = columns;
+            this.matrix = new float[rows, columns];
         }
+
         private int Rows { get; set; }
         private int Columns { get; set; }
         private float[,] matrix { get; set; }
