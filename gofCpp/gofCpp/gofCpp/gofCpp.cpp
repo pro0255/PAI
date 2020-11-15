@@ -11,7 +11,7 @@ int main()
 	Printer *p = new Printer();
 	Controller *c = new Controller();
 	GoF *g = new GoF(*c, *p);
-	g->StartParallel(5);
+	g->StartSequential(5);
 
 	delete g;
 }

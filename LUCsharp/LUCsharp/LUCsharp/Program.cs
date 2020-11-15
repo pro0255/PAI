@@ -10,6 +10,8 @@ namespace LUCsharp
     {
         static void Main(string[] args)
         {
+
+
         }
     }
 }

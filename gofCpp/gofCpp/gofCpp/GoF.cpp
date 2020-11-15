@@ -1,8 +1,8 @@
 #include "GoF.h"
 
 
-int GoF::WIDTH = 500;
-int GoF::HEIGHT = 500;
+int GoF::WIDTH = 5000;
+int GoF::HEIGHT = 5000;
 
 
 bool GoF::VERBOSE = false;
