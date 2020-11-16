@@ -15,8 +15,8 @@ namespace LUCsharp
             this.matrix = new float[rows, columns];
         }
 
-        private int Rows { get; set; }
-        private int Columns { get; set; }
+        public int Rows { get; set; }
+        public int Columns { get; set; }
         private float[,] matrix { get; set; }
 
         public float this[int i, int j]
@@ -40,7 +40,7 @@ namespace LUCsharp
             {
                 for (int j = 0; j < this.Columns; j++)
                 {
-                    sb.Append(matrix[i, j]);
+                    sb.Append($"{matrix[i, j]}\t");
                 }
                 sb.AppendLine();
             }
