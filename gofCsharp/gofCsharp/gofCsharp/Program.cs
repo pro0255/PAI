@@ -56,7 +56,7 @@ namespace gofCsharp
 
                     var gen = GetUserInputGen();
 
-                    gof.StartSerial(gen, false);
+                    gof.StartSequential(gen, false);
                 }
                 else if (val == "2")
                 {

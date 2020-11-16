@@ -24,7 +24,7 @@ namespace gofCsharp
             Printer = printer;
         }
 
-        public void StartSerial(int maxGeneration, bool verbose = true)
+        public void StartSequential(int maxGeneration, bool verbose = true)
         {
             Board.Migration = 0;
             Console.WriteLine("Serial");
@@ -32,7 +32,7 @@ namespace gofCsharp
             while (Board.Migration < maxGeneration)
             {
                 if (verbose) Printer.Print(B);
-                B = SerialIterationRun(B);
+                B = SequentialIterationRun(B);
             }
         }
 
@@ -41,7 +41,7 @@ namespace gofCsharp
             return new Board(old.Width, old.Height);
         }
 
-        public Board SerialIterationRun(Board old, bool verbose = false)
+        public Board SequentialIterationRun(Board old, bool verbose = false)
         {
             var sw = new Stopwatch();
             sw.Start();
