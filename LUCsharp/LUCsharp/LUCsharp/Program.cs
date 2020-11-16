@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,16 @@ namespace LUCsharp
     class Program
     {
 
+
+        static Matrix ReadMatrixFromFile()
+        {
+            var A = new Matrix(3, 3);
+            return A;
+        }
+
+
         static Matrix FirstTestCase()
         {
-
             var A = new Matrix(3, 3);
             A[0, 0] = 1;
             A[0, 1] = 2;
@@ -34,20 +42,25 @@ namespace LUCsharp
             return A;
         }
 
+        static void RunWithStopwatch(Approach approach, Matrix testMatrix)
+        {
+            var timer = new Stopwatch();
+            var calc = new Calculator();
+            timer.Start();
+            calc.Start(testMatrix, approach);
+            timer.Stop();
+            TimeSpan timeTaken = timer.Elapsed;
+            string foo = "Time taken: " + timeTaken.ToString(@"m\:ss\.fff");
+            Console.WriteLine(foo);
+        }
+
+
         static void Main(string[] args)
         {
             var calc = new Calculator();
-            var A = Program.FirstTestCase();
-
-
-
-            var seqResult = calc.Start(A, Approach.Sequential);
-            Console.WriteLine(seqResult.Item1);
-            Console.WriteLine(seqResult.Item2);
-            var parallelResult = calc.Start(A, Approach.Parallel);
-            Console.WriteLine(parallelResult.Item1);
-            Console.WriteLine(parallelResult.Item2);
-
+            var A = FirstTestCase();
+            RunWithStopwatch(Approach.Sequential, A);
+            RunWithStopwatch(Approach.Sequential, A);
         }
     }
 }
