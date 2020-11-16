@@ -6,13 +6,22 @@ using System.Threading.Tasks;
 
 namespace LUCsharp
 {
+
+
+
+    /** 
+        References
+
+            - https://www.youtube.com/watch?v=yYxwlnilEJs&ab_channel=BlakeTabian
+            - https://en.wikipedia.org/wiki/Crout_matrix_decomposition     
+    */
     class Program
     {
-        static void Main(string[] args)
-        {
-            var calc = new Calculator();
-            var A = new Matrix(3, 3);
 
+        static Matrix FirstTestCase()
+        {
+
+            var A = new Matrix(3, 3);
             A[0, 0] = 1;
             A[0, 1] = 2;
             A[0, 2] = 3;
@@ -22,6 +31,13 @@ namespace LUCsharp
             A[2, 0] = 3;
             A[2, 1] = 26;
             A[2, 2] = 70;
+            return A;
+        }
+
+        static void Main(string[] args)
+        {
+            var calc = new Calculator();
+            var A = Program.FirstTestCase();
 
 
 
