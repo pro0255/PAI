@@ -89,15 +89,10 @@ namespace LUCsharp
 
         static void Main(string[] args)
         {
-
-            var m0 = "matrix100.txt";
-            var m1 = "matrix500.txt";
-            var m2 = "matrix1500.txt";
-            var m3 = "matrix2000.txt";
-            var rm1 = ReadMatrixFromFile(Path.GetFullPath($"../../TestMatrix/{m1}"), 500);
-            var rm2 = ReadMatrixFromFile(Path.GetFullPath($"../../TestMatrix/{m2}"), 1500);
-            var rm3 = ReadMatrixFromFile(Path.GetFullPath($"../../TestMatrix/{m3}"), 2000);
-            //var A = FirstTestCase();
+            //var A = FirstTestCase
+            //var seq = RunWithStopwatch(Approach.Sequential, A);
+            //var par = RunWithStopwatch(Approach.Parallel, A);
+            //RunCalculation("matrix500.txt", 500);
 
             RunCalculation("matrix100.txt", 100);
             //RunCalculation("matrix500.txt", 500);
