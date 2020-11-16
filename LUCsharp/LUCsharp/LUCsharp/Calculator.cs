@@ -55,7 +55,7 @@ namespace LUCsharp
 
             for (int j = 0; j < N; j++)
             {
-                for (int i = 0; i < N; i++)
+                for (int i = j; i < N; i++)
                 {
                     float sum = 0;
                     for (int k = 0; k < j; k++)
@@ -90,11 +90,9 @@ namespace LUCsharp
         {
             Console.WriteLine("Calculating parallel");
 
-
-
             for (int j = 0; j < N; j++)
             {
-                for (int i = j; i < N; i++)
+                Parallel.For(j, N, i =>
                 {
                     float sum = 0;
                     for (int k = 0; k < j; k++)
@@ -102,11 +100,12 @@ namespace LUCsharp
                         sum = sum + L[i, k] * U[k, j];
                     }
                     L[i, j] = A[i, j] - sum;
+                });
 
-                }
 
-                for (int i = j; i < N; i++) //start od diagonaly po velikost sloupcu
+                Parallel.For(j, N, i =>
                 {
+
                     float sum = 0;
                     for (int k = 0; k < j; k++) //vyuziti predchozich prvku 
                     {
@@ -118,8 +117,9 @@ namespace LUCsharp
 
                     }
                     U[j, i] = (A[j, i] - sum) / L[j, j];
-                }
+                });
             }
+
 
             return new Tuple<Matrix, Matrix>(L, U);
 

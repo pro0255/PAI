@@ -23,12 +23,15 @@ namespace LUCsharp
             A[2, 1] = 26;
             A[2, 2] = 70;
 
-            Console.WriteLine(A);
+
 
             var seqResult = calc.Start(A, Approach.Sequential);
             Console.WriteLine(seqResult.Item1);
             Console.WriteLine(seqResult.Item2);
-            calc.Start(A, Approach.Parallel);
+            var parallelResult = calc.Start(A, Approach.Parallel);
+            Console.WriteLine(parallelResult.Item1);
+            Console.WriteLine(parallelResult.Item2);
+
         }
     }
 }
