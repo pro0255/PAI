@@ -1,0 +1,5 @@
+Matrix - 
+	size - 2000
+	name - matrix2000.txt
+Parallel time - Time taken: 0:19.462
+Sequential time - Time taken: 1:06.304

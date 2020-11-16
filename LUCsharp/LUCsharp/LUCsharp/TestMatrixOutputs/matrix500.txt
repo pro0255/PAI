@@ -1,0 +1,5 @@
+Matrix - 
+	size - 500
+	name - matrix500.txt
+Parallel time - Time taken: 0:00.284
+Sequential time - Time taken: 0:00.879

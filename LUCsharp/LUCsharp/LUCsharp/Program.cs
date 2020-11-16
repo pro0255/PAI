@@ -1,28 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LUCsharp
 {
-
-
-
     /** 
         References
-
             - https://www.youtube.com/watch?v=yYxwlnilEJs&ab_channel=BlakeTabian
             - https://en.wikipedia.org/wiki/Crout_matrix_decomposition     
+
+            - https://onlinemathtools.com/generate-random-matrix (matrix generator)       
     */
     class Program
     {
 
 
-        static Matrix ReadMatrixFromFile()
+        static Matrix ReadMatrixFromFile(string path, int size)
         {
-            var A = new Matrix(3, 3);
+            string[] lines = System.IO.File.ReadAllLines($"{path}");
+
+            var A = new Matrix(size, size);
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+
+                var splited = lines[i].Split(';');
+                for (int j = 0; j < splited.Length; j++)
+                {
+                    A[i, j] = Convert.ToInt32(splited[j]);
+                }
+            }
             return A;
         }
 
@@ -42,7 +53,7 @@ namespace LUCsharp
             return A;
         }
 
-        static void RunWithStopwatch(Approach approach, Matrix testMatrix)
+        static string RunWithStopwatch(Approach approach, Matrix testMatrix)
         {
             var timer = new Stopwatch();
             var calc = new Calculator();
@@ -51,16 +62,47 @@ namespace LUCsharp
             timer.Stop();
             TimeSpan timeTaken = timer.Elapsed;
             string foo = "Time taken: " + timeTaken.ToString(@"m\:ss\.fff");
-            Console.WriteLine(foo);
+            return foo;
+        }
+
+
+        static void WriteToFileResults(string parallel, string sequential, string matrixDes, string path)
+        {
+            using (var file = new StreamWriter($"{Path.GetFullPath(path)}"))
+            {
+                file.WriteLine($"Matrix - {matrixDes}");
+                file.WriteLine($"Parallel time - {parallel}");
+                file.WriteLine($"Sequential time - {sequential}");
+            }
+
+        }
+
+        static void RunCalculation(string matrixName, int size)
+        {
+            var matrix = ReadMatrixFromFile(Path.GetFullPath($"../../TestMatrix/{matrixName}"), size);
+            var calc = new Calculator();
+            var seq = RunWithStopwatch(Approach.Sequential, matrix);
+            var par = RunWithStopwatch(Approach.Parallel, matrix);
+            WriteToFileResults(par, seq, $"\n\tsize - {size}\n\tname - {matrixName}", Path.GetFullPath($"../../TestMatrixOutputs/{matrixName}"));
         }
 
 
         static void Main(string[] args)
         {
-            var calc = new Calculator();
-            var A = FirstTestCase();
-            RunWithStopwatch(Approach.Sequential, A);
-            RunWithStopwatch(Approach.Sequential, A);
+
+            var m0 = "matrix100.txt";
+            var m1 = "matrix500.txt";
+            var m2 = "matrix1500.txt";
+            var m3 = "matrix2000.txt";
+            var rm1 = ReadMatrixFromFile(Path.GetFullPath($"../../TestMatrix/{m1}"), 500);
+            var rm2 = ReadMatrixFromFile(Path.GetFullPath($"../../TestMatrix/{m2}"), 1500);
+            var rm3 = ReadMatrixFromFile(Path.GetFullPath($"../../TestMatrix/{m3}"), 2000);
+            //var A = FirstTestCase();
+
+            RunCalculation("matrix100.txt", 100);
+            //RunCalculation("matrix500.txt", 500);
+            //RunCalculation("matrix1500.txt", 1500);
+            //RunCalculation("matrix2000.txt", 2000);
         }
     }
 }
