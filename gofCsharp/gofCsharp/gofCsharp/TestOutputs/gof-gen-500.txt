@@ -1,0 +1,3 @@
+Max generation - 500 
+	Parallel time - Time taken: 0:25.434
+	Sequential time - Time taken: 1:15.720
