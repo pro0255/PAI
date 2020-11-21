@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Approach.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="GoF.cs" />
     <Compile Include="ICellNextState.cs" />

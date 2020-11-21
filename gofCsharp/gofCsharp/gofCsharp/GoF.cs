@@ -27,7 +27,7 @@ namespace gofCsharp
         public void StartSequential(int maxGeneration, bool verbose = true)
         {
             Board.Migration = 0;
-            Console.WriteLine("Serial");
+            Console.WriteLine("Starting serial calculation");
             B = Board.PopulateRandom(B);
             while (Board.Migration < maxGeneration)
             {
@@ -56,7 +56,7 @@ namespace gofCsharp
                 }
             }
             sw.Stop();
-            Console.WriteLine("Elapsed={0}", sw.Elapsed);
+            Console.WriteLine("Elapsed={0}, migration={1}", sw.Elapsed, Board.Migration);
             return newBoard;
         }
 
@@ -64,7 +64,7 @@ namespace gofCsharp
         public void StartParallel(int maxGeneration, int numberOfThreads, bool verbose = true)
         {
             Board.Migration = 0;
-            Console.WriteLine("Parallel");
+            Console.WriteLine("Starting parallel calculation");
             B = Board.PopulateRandom(B);
             while (Board.Migration < maxGeneration)
             {
@@ -98,7 +98,7 @@ namespace gofCsharp
             });
 
             sw.Stop();
-            Console.WriteLine("Elapsed={0}", sw.Elapsed);
+            Console.WriteLine("Elapsed={0}, migration={1}", sw.Elapsed, Board.Migration);
             return newBoard;
 
 
