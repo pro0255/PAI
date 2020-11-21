@@ -1,0 +1,3 @@
+Calcuation of Game of Life with 100 migration cycles
+	Sequential 82.655000
+	Parallel 21.848000

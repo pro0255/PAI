@@ -1,8 +1,8 @@
 #include "GoF.h"
 
 
-int GoF::WIDTH = 5000;
-int GoF::HEIGHT = 5000;
+int GoF::WIDTH = 500;
+int GoF::HEIGHT = 500;
 
 
 bool GoF::VERBOSE = false;
@@ -39,10 +39,11 @@ void GoF::StartSequential(int maxG)
 	this->b = &Board::generateBoard(GoF::WIDTH, GoF::HEIGHT);
 	Board::populateWithConfiguration(*this->b);
 	int m = 0;
+	printf("Starting sequential calculation\n");
 
 	clock_t begin = clock();
-
 	while (maxG > m++) {
+		printf("Migration number %d\n", m);
 		if (GoF::VERBOSE) this->p->print(*this->b);
 		auto newO = &this->SequentialIteration(*this->b);
 		delete this->b;
@@ -61,9 +62,10 @@ void GoF::StartParallel(int maxG)
 	Board::populateWithConfiguration(*this->b);
 	int m = 0;
 
-
+	printf("Starting parallel calculation\n");
 	clock_t begin = clock();
 	while (maxG > m++) {
+		printf("Migration number %d\n", m);
 		if (GoF::VERBOSE) this->p->print(*this->b);
 		auto newO = &this->ParallelIteration(*this->b, 4);
 		delete this->b;
