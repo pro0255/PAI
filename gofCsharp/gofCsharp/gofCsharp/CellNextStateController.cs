@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace gofCsharp
 {
+    /// <summary>
+    /// Represents logic which take care of next state of one cell.
+    /// It is rescriped in https://cs.wikipedia.org/wiki/Hra_%C5%BEivota [CZ]
+    /// CZ summary:
+    ///             Každá živá buňka s méně než dvěma živými sousedy zemře.
+    ///             Každá živá buňka se dvěma nebo třemi živými sousedy zůstává žít.
+    ///             Každá živá buňka s více než třemi živými sousedy zemře.
+    ///             Každá mrtvá buňka s právě třemi živými sousedy oživne.
+    /// </summary>
     public class CellNextStateController : ICellNextState
     {
-
-        /** 
-         Controller for game described here https://cs.wikipedia.org/wiki/Hra_%C5%BEivota           
-            Každá živá buňka s méně než dvěma živými sousedy zemře.
-            Každá živá buňka se dvěma nebo třemi živými sousedy zůstává žít.
-            Každá živá buňka s více než třemi živými sousedy zemře.
-            Každá mrtvá buňka s právě třemi živými sousedy oživne. 
-        */
 
         private bool RunConditions(int numberOfDeath, int numberOfLive, bool state)
         {

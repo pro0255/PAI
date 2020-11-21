@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace gofCsharp
 {
+    /// <summary>
+    /// Enum represents calculation approach.
+    /// </summary>
     public enum Approach
     {
         Parallel,

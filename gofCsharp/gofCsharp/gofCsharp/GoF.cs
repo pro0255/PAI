@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace gofCsharp
 {
+    /// <summary>
+    /// Instance of game.
+    /// </summary>
     public class GoF
     {
 

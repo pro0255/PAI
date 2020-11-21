@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace gofCsharp
 {
+    /// <summary>
+    /// Instance of board which is used in one migration cycle.
+    /// </summary>
     public class Board
     {
         public static int Migration = 0;
@@ -24,8 +27,14 @@ namespace gofCsharp
         }
 
 
+        /// <summary>
+        /// Pupulates board with bool information with random approach.
+        /// </summary>
+        /// <param name="b">Board to populate.</param>
+        /// <returns>Populated board.</returns>
         public static Board PopulateRandom(Board b)
         {
+
             var rand = new Random(1);
 
             for (int i = 0; i < b.Width; i++)
@@ -39,6 +48,12 @@ namespace gofCsharp
             return b;
         }
 
+
+        /// <summary>
+        /// Populates board with defined test case.
+        /// </summary>
+        /// <param name="b">Board to populate.</param>
+        /// <returns>Populated board.</returns>
         public static Board PopulateTestCaseBoard(Board b)
         {
 
@@ -74,18 +89,34 @@ namespace gofCsharp
         }
 
 
+        /// <summary>
+        /// Checks if index is in range.
+        /// </summary>
+        /// <param name="i">Collumn index.</param>
+        /// <returns>Boolean information.</returns>
         private bool CheckBorderWidth(int i)
         {
             return i >= 0 && i < Width;
 
         }
 
+        /// <summary>
+        /// Checks if index is in range.
+        /// </summary>
+        /// <param name="j">Row index.</param>
+        /// <returns>Boolean information.</returns>
         private bool CheckBorderHeight(int j)
         {
             return j >= 0 && j < Height;
         }
 
 
+        /// <summary>
+        /// Checks if row and collumn index is in range.
+        /// </summary>
+        /// <param name="i">Collumn index.</param>
+        /// <param name="j">Row index.</param>
+        /// <returns>Boolean information.</returns>
         public bool CheckBorder(int i, int j)
         {
             return CheckBorderWidth(i) && CheckBorderHeight(j);

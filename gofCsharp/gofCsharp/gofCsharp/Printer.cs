@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace gofCsharp
 {
+    /// <summary>
+    /// Instace which take care of printing a board.
+    /// </summary>
     public class Printer : IPrinter
     {
 
